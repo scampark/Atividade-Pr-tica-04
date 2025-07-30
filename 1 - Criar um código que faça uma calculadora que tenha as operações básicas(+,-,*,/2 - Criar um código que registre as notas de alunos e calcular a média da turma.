@@ -1,0 +1,23 @@
+def media_turma():
+    print("Registro de notas e cálculo da média da turma")
+    
+    try:
+        total_alunos = int(input("Quantos alunos deseja cadastrar? "))
+        if total_alunos <= 0:
+            print("O número de alunos deve ser maior que zero.")
+            return
+
+        soma_notas = 0
+
+        for i in range(1, total_alunos + 1):
+            nota = float(input(f"Digite a nota do aluno {i}: "))
+            soma_notas += nota
+
+        media = soma_notas / total_alunos
+        print(f"\nA média da turma com {total_alunos} alunos é: {media:.2f}")
+
+    except ValueError:
+        print("Erro: digite apenas números válidos.")
+
+# Executar função
+media_turma()
