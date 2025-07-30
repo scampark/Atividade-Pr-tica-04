@@ -1,0 +1,47 @@
+def verificar_senha():
+    senha = input("Digite uma senha: ")
+
+    # Verifica o comprimento
+    tem_8_caracteres = len(senha) >= 8
+    # Verifica se há pelo menos um número
+    tem_numero = any(char.isdigit() for char in senha)
+
+    if tem_8_caracteres and tem_numero:
+        print("Senha válida! Atende aos critérios de segurança.")
+    else:
+        print("Senha inválida!")
+        if not tem_8_caracteres:
+            print("- A senha deve ter pelo menos 8 caracteres.")
+        if not tem_numero:
+            print("- A senha deve conter pelo menos um número.")
+
+# Executar função
+verificar_senha()
+
+def classificar_numeros():
+    pares = 0
+    impares = 0
+
+    print("Digite números inteiros (digite 'sair' para encerrar):")
+
+    while True:
+        entrada = input("Número: ")
+        if entrada.lower() == 'sair':
+            break
+        try:
+            numero = int(entrada)
+            if numero % 2 == 0:
+                pares += 1
+                print(f"{numero} é par.")
+            else:
+                impares += 1
+                print(f"{numero} é ímpar.")
+        except ValueError:
+            print("Entrada inválida. Digite um número inteiro ou 'sair' para terminar.")
+
+    print("\nResumo:")
+    print(f"Total de números pares: {pares}")
+    print(f"Total de números ímpares: {impares}")
+
+# Executar função
+classificar_numeros()
